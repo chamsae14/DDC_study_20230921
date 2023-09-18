@@ -63,7 +63,7 @@ plot1 <- VariableFeaturePlot(pbmc)
 plot2 <- LabelPoints(plot = plot1, points = top10, repel = TRUE)
 plot1 + plot2
 
-#memory....
+#memory..
 
 all.genes <- rownames(pbmc)
 pbmc <- ScaleData(pbmc, features = all.genes)
