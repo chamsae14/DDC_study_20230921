@@ -101,7 +101,7 @@ pbmc.markers %>% filter(cluster == 0) %>% dim
 
 
 #clustering 조정 
-head(Idents(pbmc), 5)
+head(Idents(pbmc), 5) 
 
 #pbmc <- FindNeighbors(pbmc, dims = 1:10)
 #pbmc <- FindClusters(pbmc, resolution = 0.5)
