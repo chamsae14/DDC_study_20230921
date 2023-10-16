@@ -67,6 +67,7 @@ DimHeatmap(pbmc, dims = 1:15, cells = 500, balanced = TRUE)
 rm(pbmc.data)#memory save..
 
 
+##############################3rd study start
 
 # Look at cluster IDs of the first 5 cells
 head(Idents(pbmc), 5)
