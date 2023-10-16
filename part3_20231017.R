@@ -76,7 +76,7 @@ pbmc <- FindClusters(pbmc, resolution = 0.5)
 
 head(Idents(pbmc), 5)
 
-
+pbmc
 pbmc <- RunUMAP(pbmc, dims = 1:10)
 pbmc #umap label+
 DimPlot(pbmc, reduction = 'umap')
