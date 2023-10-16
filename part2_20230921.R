@@ -6,7 +6,7 @@ install.packages('Seurat')
 library(dplyr)
 library(Seurat)
 library(patchwork)
-
+pbmc_small
 pbmc <- pbmc_small
 
 pbmc
@@ -22,3 +22,5 @@ DimPlot(pbmc, reduction = "pca")
 DimHeatmap(pbmc, dims = 1:17, cells = 500, balanced = TRUE)
 
 ElbowPlot(pbmc)
+
+pbmc

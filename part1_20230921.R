@@ -21,13 +21,14 @@ pbmc3k_filtered_gene_bc_matrices.tar.gz  project.Rproj
 
 # Load the PBMC dataset
 pbmc.data <- Read10X(data.dir = "/cloud/project/filtered_gene_bc_matrices/hg19/")
-
+pbmc.data
 # Initialize the Seurat object with the raw (non-normalized data).
 #ppt
 pbmc <- CreateSeuratObject(counts = pbmc.data, project = "pbmc_study", min.cells = 3, min.features = 200)
-pbmc <- CreateSeuratObject(counts = pbmc.data, project = "pbmc_study")
-
 pbmc@meta.data %>% head
+#pbmc <- CreateSeuratObject(counts = pbmc.data, project = "pbmc_study")
+
+pbmc@meta.data %>% dim
 
 #MT-DNA percentage check
 pbmc[["percent.mt"]] <- PercentageFeatureSet(pbmc, pattern = "^MT-")
@@ -66,4 +67,5 @@ plot1 + plot2
 #memory..
 
 all.genes <- rownames(pbmc)
-pbmc <- ScaleData(pbmc, features = all.genes)
+select <- all.genes[1:5000] 
+pbmc <- ScaleData(pbmc, features = select)
