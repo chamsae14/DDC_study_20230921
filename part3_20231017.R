@@ -64,7 +64,7 @@ DimPlot(pbmc, reduction = "pca")
 DimHeatmap(pbmc, dims = 1, cells = 500, balanced = TRUE)
 DimHeatmap(pbmc, dims = 1:15, cells = 500, balanced = TRUE)
 
-rm(pbmc.data)#memory save..
+rm(pbmc.data)#memory save...
 
 
 ##############################3rd study start
