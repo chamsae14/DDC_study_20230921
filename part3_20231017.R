@@ -111,7 +111,7 @@ head(pbmc@meta.data)
 head(Idents(pbmc), 5)
 
 
-#resolution 조정
+#resolution 조정 
 pbmc <- FindClusters(pbmc, resolution = 0.1)
 head(Idents(pbmc), 5)
 DimPlot(pbmc, reduction = 'umap')
