@@ -96,11 +96,8 @@ pbmc@meta.data %>% head
 
 pbmc.markers <- FindAllMarkers(pbmc, only.pos = TRUE, min.pct = 0.25, logfc.threshold = 0.25)
 pbmc.markers %>% dim
-pbmc.markers %>% filter(cluster == 0)
+pbmc.markers %>% filter(cluster == 0) %>% dim
 
-pbmc.markers %>%
-  group_by(cluster) %>%
-  slice_max(n = 2, order_by = avg_log2FC)
 
 
 #clustering 조정 
