@@ -3,18 +3,6 @@ library(dplyr)
 library(Seurat)
 library(patchwork)
 
-#file download
-url <- 'https://cf.10xgenomics.com/samples/cell/pbmc3k/pbmc3k_filtered_gene_bc_matrices.tar.gz'
-destfile <- '/cloud/project/pbmc3k_filtered_gene_bc_matrices.tar.gz'
-download.file(url, destfile)
-
-#terminal part
-/cloud/project$ pwd
-/cloud/project$ ls
-pbmc3k_filtered_gene_bc_matrices.tar.gz  project.Rproj
-/cloud/project$ tar -xf pbmc3k_filtered_gene_bc_matrices.tar.gz 
-#################################################################
-
 # Load the PBMC dataset
 pbmc.data <- Read10X(data.dir = "/cloud/project/filtered_gene_bc_matrices/hg19/")
 pbmc.data
@@ -36,9 +24,9 @@ pbmc[["percent.mt"]] <- PercentageFeatureSet(pbmc, pattern = "^MT-")
 # Visualize QC metrics as a violin plot
 VlnPlot(pbmc, features = c("nFeature_RNA", "nCount_RNA", "percent.mt"), ncol = 3)
 
-plot1 <- FeatureScatter(pbmc, feature1 = "nCount_RNA", feature2 = "percent.mt")
-plot2 <- FeatureScatter(pbmc, feature1 = "nCount_RNA", feature2 = "nFeature_RNA")
-plot1 + plot2
+#plot1 <- FeatureScatter(pbmc, feature1 = "nCount_RNA", feature2 = "percent.mt")
+#plot2 <- FeatureScatter(pbmc, feature1 = "nCount_RNA", feature2 = "nFeature_RNA")
+#plot1 + plot2
 
 
 #mitochondria contaminated cell filtering
@@ -53,12 +41,12 @@ pbmc <- NormalizeData(pbmc)
 pbmc <- FindVariableFeatures(pbmc, selection.method = "vst", nfeatures = 2000) #top 2000 gene selection, variance stabilizing transformation
 
 # Identify the 10 most highly variable genes
-top10 <- head(VariableFeatures(pbmc), 10)
+#top10 <- head(VariableFeatures(pbmc), 10)
 
 # plot variable features with and without labels
-plot1 <- VariableFeaturePlot(pbmc)
-plot2 <- LabelPoints(plot = plot1, points = top10, repel = TRUE)
-plot1 + plot2
+#plot1 <- VariableFeaturePlot(pbmc)
+#plot2 <- LabelPoints(plot = plot1, points = top10, repel = TRUE)
+#plot1 + plot2
 
 #memory..
 
@@ -76,8 +64,7 @@ DimPlot(pbmc, reduction = "pca")
 DimHeatmap(pbmc, dims = 1, cells = 500, balanced = TRUE)
 DimHeatmap(pbmc, dims = 1:15, cells = 500, balanced = TRUE)
 
-rm(pbmc.data)
-rm(plot1)#memory save..
+rm(pbmc.data)#memory save..
 
 
 
