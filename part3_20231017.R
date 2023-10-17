@@ -134,14 +134,6 @@ head(Idents(pbmc), 5)
 DimPlot(pbmc, reduction = 'umap')
 
 
-pbmc <- FindNeighbors(pbmc, dims = 1:4)
-pbmc <- FindClusters(pbmc, resolution = 0.5)
-pbmc <- RunUMAP(pbmc, dims = 1:4)
-head(pbmc@meta.data)
-head(Idents(pbmc), 5)
-DimPlot(pbmc, reduction = 'umap')
-
-
 
 
 pbmc <- FindNeighbors(pbmc, dims = 1:20)
@@ -162,22 +154,6 @@ head(Idents(pbmc), 5)
 DimPlot(pbmc, reduction = 'umap')
 
 
-
-pbmc <- FindNeighbors(pbmc, dims = 1:17)
-pbmc <- FindClusters(pbmc, resolution = 0.5)
-
-pbmc <- RunUMAP(pbmc, dims = 1:17)
-DimPlot(pbmc, reduction = 'umap')
-
-head(Idents(pbmc), 5)
-
-
-pbmc <- FindNeighbors(pbmc, dims = 1:19)
-pbmc <- FindClusters(pbmc, resolution = 0.5)
-head(Idents(pbmc), 5)
-
-pbmc <- RunUMAP(pbmc, dims = 1:19)
-DimPlot(pbmc, reduction = 'umap')
 
 
 
